@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bangalore Road Risk Monitor</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            🚗 RoadGuard
+        </div>
+
+        <div class="nav-links">
+            <a href="#dashboard">Dashboard</a>
+            <a href="#map">Black Spots</a>
+            <a href="#analytics">Analytics</a>
+            <a href="#architecture">Architecture</a>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="subtitle">BIG DATA • ROAD SAFETY • BANGALORE</p>
+
+            <h1>
+                Bangalore Road<br>
+                <span>Accident Risk Monitor</span>
+            </h1>
+
+            <p class="hero-text">
+                A data-driven system that analyzes road accident information
+                to identify candidate high-risk zones and accident risk patterns.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#map" class="primary-btn">
+                    Explore Black Spots →
+                </a>
+
+                <a href="#architecture" class="secondary-btn">
+                    How It Works
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Dashboard Statistics -->
+    <section id="dashboard" class="dashboard">
+
+        <div class="section-heading">
+            <p class="section-label">PROJECT OVERVIEW</p>
+            <h2>Accident Risk at a Glance</h2>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <h3>3,500</h3>
+                <p>Accident Records</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📍</div>
+                <h3>16</h3>
+                <p>Candidate Black Spots</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⚠️</div>
+                <h3>0.7874</h3>
+                <p>Average Risk Score</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔴</div>
+                <h3>0.98</h3>
+                <p>Maximum Risk Score</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Map Section -->
+    <section id="map" class="map-section">
+
+        <div class="section-heading">
+            <p class="section-label">GEOGRAPHICAL ANALYSIS</p>
+
+            <h2>Candidate Accident Black Spots</h2>
+
+            <p>
+                Explore high-risk geographical zones identified from
+                the accident dataset.
+            </p>
+        </div>
+
+        <div class="map-placeholder">
+
+            <div class="map-message">
+                <div class="map-icon">🗺️</div>
+
+                <h3>Interactive Bangalore Map</h3>
+
+                <p>
+                    The interactive accident-risk map will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Analytics Section -->
+    <section id="analytics" class="analytics">
+
+        <div class="section-heading">
+            <p class="section-label">DATA ANALYSIS</p>
+
+            <h2>Understand the Risk Patterns</h2>
+
+            <p>
+                Spark analysis helps us understand how accident risk
+                varies across different factors.
+            </p>
+        </div>
+
+        <div class="analytics-grid">
+
+            <div class="analysis-card">
+                <span>🕐</span>
+                <h3>Risk by Hour</h3>
+                <p>
+                    Analyze how accident risk changes throughout
+                    the day.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <span>🚗</span>
+                <h3>Traffic Density</h3>
+                <p>
+                    Compare accident risk across different
+                    traffic-density levels.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <span>🌦️</span>
+                <h3>Weather Conditions</h3>
+                <p>
+                    Explore risk patterns across different
+                    weather categories.
+                </p>
+            </div>
+
+            <div class="analysis-card">
+                <span>🛣️</span>
+                <h3>Road Type</h3>
+                <p>
+                    Examine risk across different road-type
+                    categories.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Big Data Architecture -->
+    <section id="architecture" class="architecture">
+
+        <div class="section-heading">
+
+            <p class="section-label">BIG DATA PIPELINE</p>
+
+            <h2>How Our System Works</h2>
+
+            <p>
+                Hadoop, Hive and Spark work together to process
+                and analyze the accident dataset.
+            </p>
+
+        </div>
+
+
+        <div class="pipeline">
+
+            <div class="pipeline-card">
+                <div class="pipeline-number">01</div>
+                <div class="pipeline-icon">🗄️</div>
+                <h3>HDFS</h3>
+                <p>
+                    Stores the road accident dataset
+                    in Hadoop Distributed File System.
+                </p>
+            </div>
+
+
+            <div class="pipeline-arrow">→</div>
+
+
+            <div class="pipeline-card">
+                <div class="pipeline-number">02</div>
+                <div class="pipeline-icon">🔍</div>
+                <h3>Hive</h3>
+                <p>
+                    Organizes and queries the accident
+                    data stored in HDFS.
+                </p>
+            </div>
+
+
+            <div class="pipeline-arrow">→</div>
+
+
+            <div class="pipeline-card">
+                <div class="pipeline-number">03</div>
+                <div class="pipeline-icon">⚡</div>
+                <h3>Apache Spark</h3>
+                <p>
+                    Processes the data and performs
+                    risk and geographical analysis.
+                </p>
+            </div>
+
+
+            <div class="pipeline-arrow">→</div>
+
+
+            <div class="pipeline-card">
+                <div class="pipeline-number">04</div>
+                <div class="pipeline-icon">📈</div>
+                <h3>Visualization</h3>
+                <p>
+                    Presents the analysis through
+                    an interactive dashboard.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="logo">🚗 RoadGuard</div>
+
+        <p>
+            Dynamic Road Accident Black Spot Detection & Risk Monitoring System
+        </p>
+
+        <p class="copyright">
+            Big Data Project • Bangalore
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
