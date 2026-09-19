@@ -1,114 +1,43 @@
-[
-  {
-    "latitude": 12.933,
-    "longitude": 77.698,
-    "accident_records": 3,
-    "average_risk": 0.944367,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 13.003,
-    "longitude": 77.555,
-    "accident_records": 3,
-    "average_risk": 0.935467,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 13.043,
-    "longitude": 77.596,
-    "accident_records": 3,
-    "average_risk": 0.931833,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 12.960,
-    "longitude": 77.597,
-    "accident_records": 3,
-    "average_risk": 0.902100,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 12.971,
-    "longitude": 77.593,
-    "accident_records": 3,
-    "average_risk": 0.848400,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 13.041,
-    "longitude": 77.609,
-    "accident_records": 3,
-    "average_risk": 0.846200,
-    "maximum_risk": 0.9575
-  },
-  {
-    "latitude": 12.995,
-    "longitude": 77.563,
-    "accident_records": 3,
-    "average_risk": 0.828600,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 12.988,
-    "longitude": 77.565,
-    "accident_records": 3,
-    "average_risk": 0.794267,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 12.920,
-    "longitude": 77.692,
-    "accident_records": 3,
-    "average_risk": 0.791933,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 12.987,
-    "longitude": 77.543,
-    "accident_records": 3,
-    "average_risk": 0.768800,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 13.040,
-    "longitude": 77.593,
-    "accident_records": 4,
-    "average_risk": 0.758800,
-    "maximum_risk": 0.98
-  },
-  {
-    "latitude": 12.921,
-    "longitude": 77.688,
-    "accident_records": 3,
-    "average_risk": 0.743100,
-    "maximum_risk": 0.9086
-  },
-  {
-    "latitude": 13.008,
-    "longitude": 77.580,
-    "accident_records": 3,
-    "average_risk": 0.734133,
-    "maximum_risk": 0.8741
-  },
-  {
-    "latitude": 12.956,
-    "longitude": 77.596,
-    "accident_records": 3,
-    "average_risk": 0.729200,
-    "maximum_risk": 0.8599
-  },
-  {
-    "latitude": 12.921,
-    "longitude": 77.611,
-    "accident_records": 3,
-    "average_risk": 0.721900,
-    "maximum_risk": 0.8467
-  },
-  {
-    "latitude": 12.962,
-    "longitude": 77.608,
-    "accident_records": 3,
-    "average_risk": 0.658167,
-    "maximum_risk": 0.7384
-  }
-]
+import json
+
+# ============================================
+# CREATE UPDATED BLACK SPOTS JSON
+# ============================================
+
+# Project-defined black spot:
+# Location having 5 or more accident records
+black_spots = (
+    location_accidents
+    .filter("accident_count >= 5")
+    .orderBy("accident_count", ascending=False)
+)
+
+# Collect all 527 black spots
+black_spot_rows = black_spots.collect()
+
+# Convert Spark rows to JSON format
+black_spots_json = []
+
+for row in black_spot_rows:
+    black_spots_json.append({
+        "latitude": float(row["lat_zone"]),
+        "longitude": float(row["lon_zone"]),
+        "accident_records": int(row["accident_count"])
+    })
+
+# Save JSON file
+output_file = "/content/black_spots.json"
+
+with open(output_file, "w") as f:
+    json.dump(black_spots_json, f, indent=2)
+
+# Verification
+print("============================================")
+print("BLACK SPOT JSON CREATED")
+print("============================================")
+print("Total black spots:", len(black_spots_json))
+print("Output file:", output_file)
+
+print("\nFirst 5 black spots:")
+for spot in black_spots_json[:5]:
+    print(spot)
