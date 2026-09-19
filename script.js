@@ -1,14 +1,11 @@
 // ==========================================
-// ROADGUARD - INTERACTIVE BANGALORE MAP
+// ROADGUARD - INDIA ROAD ACCIDENT BLACK SPOT MAP
 // ==========================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Create the Bangalore map
-    const map = L.map("accident-map").setView(
-        [12.9716, 77.5946],
-        11
-    );
+    // Create the map
+    const map = L.map("accident-map");
 
     // Add OpenStreetMap tiles
     L.tileLayer(
@@ -20,10 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     ).addTo(map);
 
 
-    // Load our black-spot data
+    // Load black-spot data
     fetch("data/black_spots.json")
         .then(response => response.json())
         .then(blackSpots => {
+
+            // Create a marker cluster group
+            const markers = L.markerClusterGroup();
 
             blackSpots.forEach((spot, index) => {
 
@@ -31,12 +31,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 const marker = L.marker([
                     spot.latitude,
                     spot.longitude
-                ]).addTo(map);
-
+                ]);
 
                 // Create popup
                 marker.bindPopup(`
-                    <div style="min-width: 200px;">
+                    <div style="min-width: 220px;">
                         <h3>🔴 Candidate Black Spot ${index + 1}</h3>
 
                         <p>
@@ -51,22 +50,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         <p>
                             <strong>Accident Records:</strong>
-                            ${spot.accident_records}
+                            ${spot.accident_count}
                         </p>
 
                         <p>
-                            <strong>Average Risk:</strong>
-                            ${spot.average_risk.toFixed(3)}
-                        </p>
-
-                        <p>
-                            <strong>Maximum Risk:</strong>
-                            ${spot.maximum_risk.toFixed(3)}
+                            <strong>Definition:</strong>
+                            5+ accident records at this location
                         </p>
                     </div>
                 `);
 
+                // Add marker to cluster
+                markers.addLayer(marker);
             });
+
+            // Add all markers to map
+            map.addLayer(markers);
+
+            // Automatically zoom to show all locations
+            if (markers.getLayers().length > 0) {
+                map.fitBounds(markers.getBounds(), {
+                    padding: [30, 30]
+                });
+            }
+
+            console.log(
+                "Black spots loaded:",
+                blackSpots.length
+            );
 
         })
         .catch(error => {
