@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Bangalore Road Risk Monitor</title>
+    <title>India Road Accident Black Spot Monitor</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet CSS -->
     <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-/>
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+
+    <!-- Leaflet MarkerCluster CSS -->
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+    />
+
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+    />
 </head>
 
 <body>
@@ -35,19 +48,23 @@
 
         <div class="hero-content">
 
-            <p class="subtitle">BIG DATA • ROAD SAFETY • BANGALORE</p>
+            <p class="subtitle">
+                BIG DATA • ROAD SAFETY • INDIA
+            </p>
 
             <h1>
-                Bangalore Road<br>
-                <span>Accident Risk Monitor</span>
+                India Road Accident<br>
+                <span>Black Spot Monitor</span>
             </h1>
 
             <p class="hero-text">
-                A data-driven system that analyzes road accident information
-                to identify candidate high-risk zones and accident risk patterns.
+                A Big Data based system that analyzes large-scale road
+                accident records to identify candidate accident black spots
+                and understand important accident patterns.
             </p>
 
             <div class="hero-buttons">
+
                 <a href="#map" class="primary-btn">
                     Explore Black Spots →
                 </a>
@@ -55,6 +72,7 @@
                 <a href="#architecture" class="secondary-btn">
                     How It Works
                 </a>
+
             </div>
 
         </div>
@@ -66,34 +84,89 @@
     <section id="dashboard" class="dashboard">
 
         <div class="section-heading">
-            <p class="section-label">PROJECT OVERVIEW</p>
-            <h2>Accident Risk at a Glance</h2>
+
+            <p class="section-label">
+                PROJECT OVERVIEW
+            </p>
+
+            <h2>
+                Accident Analysis at a Glance
+            </h2>
+
         </div>
+
 
         <div class="stats-grid">
 
+            <!-- Total Valid Records -->
             <div class="stat-card">
-                <div class="stat-icon">📊</div>
-                <h3>3,500</h3>
-                <p>Accident Records</p>
+
+                <div class="stat-icon">
+                    📊
+                </div>
+
+                <h3>
+                    59,998
+                </h3>
+
+                <p>
+                    Valid Accident Records
+                </p>
+
             </div>
 
+
+            <!-- Candidate Black Spots -->
             <div class="stat-card">
-                <div class="stat-icon">📍</div>
-                <h3>16</h3>
-                <p>Candidate Black Spots</p>
+
+                <div class="stat-icon">
+                    📍
+                </div>
+
+                <h3>
+                    527
+                </h3>
+
+                <p>
+                    Candidate Black Spots
+                </p>
+
             </div>
 
+
+            <!-- Unique Locations -->
             <div class="stat-card">
-                <div class="stat-icon">⚠️</div>
-                <h3>0.7874</h3>
-                <p>Average Risk Score</p>
+
+                <div class="stat-icon">
+                    🗺️
+                </div>
+
+                <h3>
+                    48,043
+                </h3>
+
+                <p>
+                    Unique Locations
+                </p>
+
             </div>
 
+
+            <!-- Threshold -->
             <div class="stat-card">
-                <div class="stat-icon">🔴</div>
-                <h3>0.98</h3>
-                <p>Maximum Risk Score</p>
+
+                <div class="stat-icon">
+                    ⚠️
+                </div>
+
+                <h3>
+                    5+
+                </h3>
+
+                <p>
+                    Accident Threshold
+                </p>
+
             </div>
 
         </div>
@@ -105,17 +178,26 @@
     <section id="map" class="map-section">
 
         <div class="section-heading">
-            <p class="section-label">GEOGRAPHICAL ANALYSIS</p>
 
-            <h2>Candidate Accident Black Spots</h2>
+            <p class="section-label">
+                GEOGRAPHICAL ANALYSIS
+            </p>
+
+            <h2>
+                Candidate Accident Black Spots
+            </h2>
 
             <p>
-                Explore high-risk geographical zones identified from
-                the accident dataset.
+                Explore candidate black-spot locations identified by
+                grouping accident records into rounded geographical zones.
+                A project-defined threshold of 5 or more accident records
+                is used to identify candidate locations.
             </p>
+
         </div>
 
-       <div id="accident-map"></div>
+
+        <div id="accident-map"></div>
 
     </section>
 
@@ -124,52 +206,99 @@
     <section id="analytics" class="analytics">
 
         <div class="section-heading">
-            <p class="section-label">DATA ANALYSIS</p>
 
-            <h2>Understand the Risk Patterns</h2>
+            <p class="section-label">
+                DATA ANALYSIS
+            </p>
+
+            <h2>
+                Understand Accident Patterns
+            </h2>
 
             <p>
-                Spark analysis helps us understand how accident risk
-                varies across different factors.
+                Big Data processing can be used to examine how accident
+                occurrences vary across time, road conditions,
+                environmental conditions and other factors.
             </p>
+
         </div>
+
 
         <div class="analytics-grid">
 
+            <!-- Time Analysis -->
             <div class="analysis-card">
-                <span>🕐</span>
-                <h3>Risk by Hour</h3>
+
+                <span>
+                    🕐
+                </span>
+
+                <h3>
+                    Time Analysis
+                </h3>
+
                 <p>
-                    Analyze how accident risk changes throughout
-                    the day.
+                    Analyze accident occurrence across different
+                    hours of the day to identify temporal patterns.
                 </p>
+
             </div>
 
+
+            <!-- Traffic Analysis -->
             <div class="analysis-card">
-                <span>🚗</span>
-                <h3>Traffic Density</h3>
+
+                <span>
+                    🚗
+                </span>
+
+                <h3>
+                    Traffic Conditions
+                </h3>
+
                 <p>
-                    Compare accident risk across different
-                    traffic-density levels.
+                    Examine accident patterns across different
+                    traffic-density conditions.
                 </p>
+
             </div>
 
+
+            <!-- Weather Analysis -->
             <div class="analysis-card">
-                <span>🌦️</span>
-                <h3>Weather Conditions</h3>
+
+                <span>
+                    🌦️
+                </span>
+
+                <h3>
+                    Weather Conditions
+                </h3>
+
                 <p>
-                    Explore risk patterns across different
-                    weather categories.
+                    Study how accident records are distributed
+                    across different weather conditions.
                 </p>
+
             </div>
 
+
+            <!-- Road Analysis -->
             <div class="analysis-card">
-                <span>🛣️</span>
-                <h3>Road Type</h3>
+
+                <span>
+                    🛣️
+                </span>
+
+                <h3>
+                    Road Type
+                </h3>
+
                 <p>
-                    Examine risk across different road-type
-                    categories.
+                    Compare accident occurrence across different
+                    road and junction characteristics.
                 </p>
+
             </div>
 
         </div>
@@ -182,13 +311,17 @@
 
         <div class="section-heading">
 
-            <p class="section-label">BIG DATA PIPELINE</p>
+            <p class="section-label">
+                BIG DATA PIPELINE
+            </p>
 
-            <h2>How Our System Works</h2>
+            <h2>
+                How Our System Works
+            </h2>
 
             <p>
-                Hadoop, Hive and Spark work together to process
-                and analyze the accident dataset.
+                Hadoop HDFS, Hive and Apache Spark work together
+                to store, process and analyze the large accident dataset.
             </p>
 
         </div>
@@ -196,56 +329,110 @@
 
         <div class="pipeline">
 
+            <!-- HDFS -->
             <div class="pipeline-card">
-                <div class="pipeline-number">01</div>
-                <div class="pipeline-icon">🗄️</div>
-                <h3>HDFS</h3>
+
+                <div class="pipeline-number">
+                    01
+                </div>
+
+                <div class="pipeline-icon">
+                    🗄️
+                </div>
+
+                <h3>
+                    HDFS
+                </h3>
+
                 <p>
-                    Stores the road accident dataset
-                    in Hadoop Distributed File System.
+                    Stores the large road accident dataset
+                    using Hadoop Distributed File System.
                 </p>
+
             </div>
 
 
-            <div class="pipeline-arrow">→</div>
-
-
-            <div class="pipeline-card">
-                <div class="pipeline-number">02</div>
-                <div class="pipeline-icon">🔍</div>
-                <h3>Hive</h3>
-                <p>
-                    Organizes and queries the accident
-                    data stored in HDFS.
-                </p>
+            <div class="pipeline-arrow">
+                →
             </div>
 
 
-            <div class="pipeline-arrow">→</div>
-
-
+            <!-- Hive -->
             <div class="pipeline-card">
-                <div class="pipeline-number">03</div>
-                <div class="pipeline-icon">⚡</div>
-                <h3>Apache Spark</h3>
+
+                <div class="pipeline-number">
+                    02
+                </div>
+
+                <div class="pipeline-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    Hive
+                </h3>
+
                 <p>
-                    Processes the data and performs
-                    risk and geographical analysis.
+                    Provides SQL-based querying and helps
+                    organize and analyze accident data.
                 </p>
+
             </div>
 
 
-            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-arrow">
+                →
+            </div>
 
 
+            <!-- Spark -->
             <div class="pipeline-card">
-                <div class="pipeline-number">04</div>
-                <div class="pipeline-icon">📈</div>
-                <h3>Visualization</h3>
+
+                <div class="pipeline-number">
+                    03
+                </div>
+
+                <div class="pipeline-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Apache Spark
+                </h3>
+
                 <p>
-                    Presents the analysis through
-                    an interactive dashboard.
+                    Performs distributed data processing,
+                    geographical grouping and accident analysis.
                 </p>
+
+            </div>
+
+
+            <div class="pipeline-arrow">
+                →
+            </div>
+
+
+            <!-- Visualization -->
+            <div class="pipeline-card">
+
+                <div class="pipeline-number">
+                    04
+                </div>
+
+                <div class="pipeline-icon">
+                    📈
+                </div>
+
+                <h3>
+                    Visualization
+                </h3>
+
+                <p>
+                    Presents the processed results through
+                    an interactive web dashboard and map.
+                </p>
+
             </div>
 
         </div>
@@ -256,19 +443,30 @@
     <!-- Footer -->
     <footer>
 
-        <div class="logo">🚗 RoadGuard</div>
+        <div class="logo">
+            🚗 RoadGuard
+        </div>
 
         <p>
-            Dynamic Road Accident Black Spot Detection & Risk Monitoring System
+            Dynamic Road Accident Black Spot Detection &amp;
+            Risk Monitoring System
         </p>
 
         <p class="copyright">
-            Big Data Project • Bangalore
+            Big Data Project • India
         </p>
 
     </footer>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="script.js"></script>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Leaflet MarkerCluster JavaScript -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+    <!-- Our JavaScript -->
+    <script src="script.js"></script>
+
 </body>
 </html>
